@@ -149,32 +149,6 @@ if selected == "EDA":
 
         col1,col2,col3 = st.columns([3,1,6])
         with col1:
-            # Create a select box to choose a Room Type
-            room_types = ["All Room Types"] + sorted(df_country_1["room_type"].unique())
-            room_type_1 = st.selectbox("Select the Room Type", room_types, key="room1")
-            # Filter the DataFrame based on the selected room type
-            if room_type_1 == "All Room Types":
-                df_country_1_room = df_country_1.copy()  # Select all room types
-            else:
-                df_country_1_room = df_country_1[df_country_1["room_type"] == room_type_1]
-            # Group by Market
-            df_country_1_room_market = pd.DataFrame(df_country_1_room.groupby("market")[["host_listings_count"]].sum())
-            df_country_1_room_market.reset_index(inplace= True)
-            # Sort the Group by Market
-            df_country_1_room_market_sorted = df_country_1_room_market.sort_values(by="host_listings_count", ascending=False)
-            df_country_1_room_market_sorted.reset_index(drop=True, inplace=True)
-            df_country_1_room_market_sorted.index += 1
-            st.dataframe(df_country_1_room_market_sorted)
-            
-        with col3:
-            # Bar chart - Market & Host Listing Count
-            fig_bar_2 = px.bar(df_country_1_room_market_sorted, x='host_listings_count', y="market", title="Market & Host Listing Count",
-                                hover_data=["host_listings_count"],color= "market")
-            fig_bar_2.update_layout(xaxis_title="Total Host Listing Count",yaxis_title="Market")
-            st.plotly_chart(fig_bar_2, use_container_width=True)
-
-        col1,col2,col3 = st.columns([3,1,6])
-        with col1:
             # Create a select box to choose a Property Type
             property_types = ["All Property Types"] + sorted(df_country_1["property_type"].unique())
             property_type_1 = st.selectbox("Select the Property Type", property_types, key="property1")
@@ -197,7 +171,7 @@ if selected == "EDA":
             fig_bar_3 = px.bar(df_country_1_property_market_sorted, x='host_listings_count', y="market", title="Market & Host Listing Count",
                                 hover_data=["host_listings_count"],color= "market")
             fig_bar_3.update_layout(xaxis_title="Total Host Listing Count",yaxis_title="Market")
-            st.plotly_chart(fig_bar_3, use_container_width=True) 
+            st.plotly_chart(fig_bar_3, use_container_width=True)
 
         # Pie chart - Cancellation Policy
         cancellation_counts_df = pd.DataFrame(df['cancellation_policy'].value_counts().reset_index(), columns=['cancellation_policy', 'count'])
@@ -273,7 +247,7 @@ if selected == "EDA":
 
         country_list = sorted(["ALL COUNTRIES"] + sorted(df["country"].unique()))
         country_5 = st.selectbox("Select the Country", country_list, key="country5")
-        if country_5 == "All Countries":
+        if country_5 == "ALL COUNTRIES":
             df1_a = df.copy()  # Select all countries
         else:
             df1_a = df[df["country"] == country_5]
@@ -282,11 +256,12 @@ if selected == "EDA":
         property_types = ["All Property Types"] + sorted(df_country_1["property_type"].unique())
         property_type_2 = st.selectbox("Select the Property Type", property_types, key="property2")
 
-        if property_type_2 == "All Properties":
-            df2_a = df1_a.copy()  # Select all properties
+        if property_type_2 == "All Property Types":
+            df2_a = df1_a.copy()  # Select all property
         else:
             df2_a = df1_a[df1_a["property_type"] == property_type_2]
         df2_a.reset_index(drop=True, inplace=True)
+
         col1,col2= st.columns(2)
 
         with col1:
@@ -648,10 +623,4 @@ if selected == "ABOUT":
     
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center; color: #ff5a5f;'>Explore more about Airbnb on their <a href='https://www.airbnb.com' target='_blank'>official website</a></h3>", unsafe_allow_html=True)
-
-
-        
-        
-
-
-
+  
