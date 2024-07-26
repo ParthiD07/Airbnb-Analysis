@@ -62,11 +62,6 @@ if selected == "HOME":
     This project not only deepens understanding of Airbnb's operational dynamics but also equips with practical skills 
     in data management, analysis, and visualization.''')
 
-    st.subheader(''':red[**Reference:**]''')
-    st.markdown('''**This Project - Airbnb Analysis was done by myself, Parthiban D**''')
-    st.markdown('''**To refer codes of this project, refer my Github page by clicking on the button below**''')
-    st.link_button('Go to Github','https://github.com/ParthiD07') 
-
 if selected == "EXPLORE":
     st.title("Geospatial Visualization")
 
