@@ -18,8 +18,8 @@ st.markdown(
     unsafe_allow_html=True)
 
 # CREATING OPTION MENU
-selected = option_menu(None, ["HOME","EXPLORE","EDA","TOP INSIGHTS","ABOUT"], 
-                       icons=["house","binoculars","search","lightbulb","file-person"],
+selected = option_menu(None, ["HOME","EXPLORE","EDA","TOP INSIGHTS"], 
+                       icons=["house","binoculars","search","lightbulb"],
                        default_index=0,
                        orientation="horizontal",
                        styles={"container": {"padding": "0!important", "background-color": "#fafafa","width": "100%","text-align": "center","margin": "0 auto"},
@@ -596,26 +596,3 @@ if selected == "TOP INSIGHTS":
                 
             st.write("")
             st.dataframe(df1,hide_index=True)
-
-if selected == "ABOUT":
-
-    st.markdown("<h1 style='text-align: center; color: #ff5a5f;'>Airbnb</h1>", unsafe_allow_html=True)
-    st.markdown(f'''<span style="font-size:20px;"> Airbnb is a global online marketplace that connects people looking to rent out their homes with those who are seeking accommodations.
-                Founded in 2007 by Brian Chesky, Joe Gebbia, and Nathan Blecharczyk, Airbnb has revolutionized the way people travel by offering unique and personalized lodging options beyond traditional hotels.</span>''', unsafe_allow_html=True)
-    
-    st.subheader(":red[**Key Features of Airbnb :**]")
-    st.write("1. :blue[**Local Immersion :**] Airbnb emphasizes the opportunity for travelers to immerse themselves in local culture by staying in accommodations hosted by locals. This goes beyond just lodging, offering insights into neighborhoods, customs, and lifestyles.")
-    st.write("2. :blue[**Diversity and Choice :**] Airbnb's platform offers a diverse range of accommodations, from apartments and houses to unconventional options like castles or houseboats. This variety allows travelers to find accommodations that suit their preferences and budget.")
-    st.write("3. :blue[**Community and Connection :**] Airbnb fosters a sense of community between hosts and guests, encouraging meaningful interactions and cultural exchange. This can lead to memorable experiences and lasting connections.")
-    st.write("4. :blue[**Flexibility and Personalization :**] The platform provides flexibility in terms of check-in/check-out times, house rules, and amenities, allowing guests to tailor their stay to their needs. Hosts often offer personalized recommendations and hospitality.")
-    st.write("5. :blue[**Trust and Safety :**] Airbnb prioritizes trust and safety through features like verified profiles, secure payment systems, and reviews from previous guests. This helps build confidence and transparency in the booking process.")
-    st.write("6. :blue[**Global Reach :**]  With listings in over 220 countries and regions, Airbnb offers a global reach that allows travelers to explore diverse destinations and accommodations worldwide.")
-    
-    st.subheader(":red[**Additional Information :**]")
-    st.write("- :blue[**Impact on Travel Industry:**] Airbnb has disrupted the traditional hotel industry by offering alternatives that cater to a wide range of traveler preferences and budgets.")
-    st.write("- :blue[**Economic Opportunities:**] Hosting on Airbnb provides individuals with opportunities to earn income by renting out their spaces, contributing to local economies.")
-    st.write("- :blue[**Environmental Considerations:**] Airbnb promotes sustainable travel by encouraging guests to choose eco-friendly accommodations and hosts to adopt green practices.")
-    
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown("<h3 style='text-align: center; color: #ff5a5f;'>Explore more about Airbnb on their <a href='https://www.airbnb.com' target='_blank'>official website</a></h3>", unsafe_allow_html=True)
-  
